@@ -46,7 +46,7 @@ class ProcessUserBatchUpdates implements ShouldQueue
 
             Log::info("[$index] $formattedChanges");
         }
-        Log::info($this->updates->pluck('id'));
+        Log::info('batch finished processing');
         // Assume successful processing and delete the updates from the queue
         UserUpdateQueue::whereIn('id', $this->updates->pluck('id'))->delete();
     }
