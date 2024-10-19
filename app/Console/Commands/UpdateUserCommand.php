@@ -37,8 +37,9 @@ class UpdateUserCommand extends Command
                 'timezone' => fake()->randomElement(config('timezones')),
             ]);
 
-            $this->info("Updated user: {$user->id}");
         }
+        $updatedCount = count($users);
+        $this->info("$updatedCount users updated");
 
         return 0;
     }
